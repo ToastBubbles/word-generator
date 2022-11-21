@@ -87,7 +87,9 @@
         "ar",
         "ti",
         "ne",
-        "z"
+        "z",
+        "ar",
+        "od"
     ];
 
     let temp = [];
@@ -114,7 +116,19 @@
         "ell",
         "ill",
         "il",
-        "aw"
+        "aw",
+        "sha",
+        "hal",
+        "al",
+        "ena",
+        "me",
+        "ian",
+        "ion",
+        "icus",
+        "lia",
+        "us",
+        "az"
+
     ];
 
 
