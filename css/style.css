@@ -1,3 +1,30 @@
 .center{
     text-align: center;
 }
+
+
+body {
+    background-image: url("../src/light-grey-terrazzo.webp");
+    
+    background-color: #cccccc;
+}
+
+.spin{
+
+    text-align: center;
+    animation-name: spin;
+    animation-duration: 1ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes spin {
+    from {
+        transform:rotate(-2deg);
+    }
+    to {
+        transform:rotate(2deg);
+
+
+    }
+}

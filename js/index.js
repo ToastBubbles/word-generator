@@ -4,7 +4,7 @@
 
 
 function setWordLength(i){
-    const min = 3;
+    const min = 4;
     const max = 12;
 
     return i = Math.ceil(Math.random() * (max - min) + min);
@@ -14,6 +14,7 @@ function setWordLength(i){
 function setWordPattern(p, l){
     let localPattern = [];
     let tempHolder = 0;
+    let tempLetter = "a";
 
 
 
@@ -21,21 +22,45 @@ function setWordPattern(p, l){
     const vowArray = ["a","e","i","o","u"];
     for (let i = 1; i < l; i++){
 
-        if (tempHolder == 0){
-            tempHolder = conArray[Math.ceil(Math.random()*20-1)];
-            localPattern.push(tempHolder);
+        if (tempHolder == 0){//constanant
+            tempLetter= conArray[Math.ceil(Math.random()*20-1)];
+            localPattern.push(tempLetter);
+            
+            
             tempHolder = 1;
-        }else{
-            tempHolder = vowArray[Math.ceil(Math.random()*6-1)];
-            localPattern.push(tempHolder);
-            tempHolder = 0;
+        }else{//vowel
+            tempLetter = vowArray[Math.ceil(Math.random()*6-1)];
+            localPattern.push(tempLetter);
+            if(localPattern[i - 1] == "a" || localPattern[i - 1] == "e" || localPattern[i - 1] == "i" || localPattern[i - 1] == "o" || localPattern[i - 1] == "u"){
+                let rand = Math.random();
+                console.log(rand);
+                //document.getElementById("test1").innerHTML = "a";
+                
+                if(rand > 0.75){
+                console.log("rolled a double");
+                tempHolder = 1;
+                
+                }else{
+                    tempHolder = 0;
+                }
+            }else{
+                tempHolder = 0;
+            }
+            
         }
 
-
+        
 
     }
 
-
+    let randS = Math.random();
+    if(randS > 0.95){
+        localPattern.push("ing")
+    } else if (randS > 0.85){
+        localPattern.push("ed");
+    } else if (randS > 0.75){
+        localPattern.push("s");
+    }
     return localPattern.join("");
 
 
