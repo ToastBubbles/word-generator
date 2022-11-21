@@ -16,28 +16,42 @@ function setWordPattern(p, l){
     let tempHolder = 0;
     let tempLetter = "a";
 
-
+    if(Math.random() > 0.66){
+        tempHolder = 1;
+    }
 
     const conArray = ["b","c","d","f","g","h","j","k","l","m","n","p","q","r","s","t","v","w","x","y","z"];
     const vowArray = ["a","e","i","o","u"];
     for (let i = 1; i < l; i++){
 
         if (tempHolder == 0){//constanant
-            tempLetter= conArray[Math.ceil(Math.random()*20-1)];
+            tempLetter = conArray[Math.ceil(Math.random()*20-1)];
             localPattern.push(tempLetter);
+            if((localPattern[i - 1] == "b" || localPattern[i - 1] == "d" || localPattern[i - 1] == "f" || localPattern[i - 1] == "g" || localPattern[i - 1] == "k" || localPattern[i - 1] == "l" || localPattern[i - 1] == "m" || localPattern[i - 1] == "n" || localPattern[i - 1] == "p" || localPattern[i - 1] == "r" || localPattern[i - 1] == "s" || localPattern[i - 1] == "t" || localPattern[i - 1] == "v" || localPattern[i - 1] == "y") && i > 2){
+                if(Math.random() > 0.85){
+                    console.log("rolled a double const");
+                    
+                    //tempHolder = 0;
+                    localPattern.push(tempLetter);
+                    tempHolder = 1;
+                
+                }else{
+                    tempHolder = 1;
+                }
+            }else{
+                tempHolder = 1;
+            }
             
-            
-            tempHolder = 1;
         }else{//vowel
             tempLetter = vowArray[Math.ceil(Math.random()*6-1)];
             localPattern.push(tempLetter);
             if(localPattern[i - 1] == "a" || localPattern[i - 1] == "e" || localPattern[i - 1] == "i" || localPattern[i - 1] == "o" || localPattern[i - 1] == "u"){
-                let rand = Math.random();
-                console.log(rand);
+                //let rand = Math.random();
+                //console.log(rand);
                 //document.getElementById("test1").innerHTML = "a";
                 
-                if(rand > 0.75){
-                console.log("rolled a double");
+                if(Math.random() > 0.75){
+                console.log("rolled a double vowel");
                 tempHolder = 1;
                 
                 }else{
