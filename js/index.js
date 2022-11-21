@@ -1,8 +1,3 @@
-
-
-
-
-
 function setWordLength(i){
     const min = 4;
     const max = 12;
@@ -75,7 +70,9 @@ function setWordPattern(p, l){
     } else if (randS > 0.75){
         localPattern.push("s");
     }
+    
     return localPattern.join("");
+    
 
 
 }
