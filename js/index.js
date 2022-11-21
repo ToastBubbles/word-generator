@@ -51,7 +51,7 @@ function setWordPattern(p, l){
 
         
 
-    }
+    }//test
 
     let randS = Math.random();
     if(randS > 0.95){
