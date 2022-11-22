@@ -1,18 +1,5 @@
-/* TODO
-
- - make this
- */
-
-
 
 function generateNewName(){
-    
-
-    var voiceForName = window.speechSynthesis.getVoices();
-    
-    
-    
-
 
     let segments = 0;
     let seed = Math.random();
@@ -31,52 +18,54 @@ function generateNewName(){
     genName.push(innerName(segments));
     genName.push(endName());
 
-    //return genName.join("");
-    //console.log(genName.join(""));
     tempString = genName.join("");
 
-    //console.log(voiceForName);
-    //const delayedVoice = await voiceDelay(voiceForName);
-    //console.log(delayedVoice);
-
     
-    readName(tempString, voiceForName[5]);
+    readName(tempString);
     document.getElementById("makeName").innerHTML = tempString.charAt(0).toUpperCase() + tempString.slice(1);
 
  }
 
-/*
- function myCallback(v){
 
-    setTimeout(function() {
-        //your code to be executed after 1 second
-        speakName.voice = v;//"native";
-      }, 100);
- }
 
-function voiceDelay(voiceChosen){
+function setSpeech() {
+    return new Promise(
+        function (resolve, reject) {
+            let synth = window.speechSynthesis;
+            let id;
 
-    return new Promise(resolve => {
-        setTimeout(() => {
-          resolve(voiceChosen);
-        }, 2000);
-      });
+            id = setInterval(() => {
+                if (synth.getVoices().length !== 0) {
+                    resolve(synth.getVoices());
+                    clearInterval(id);
+                }
+            }, 10);
+        }
+    )
+}
 
-}*/
- function readName(sampleName, voiceChosen){
-    //setTimeout(function() {
+
+
+ function readName(sampleName){
+
     var speakName = new SpeechSynthesisUtterance();
-    speakName.rate = 0.8;
-    speakName.pitch = 3;
 
-    speakName.voice = voiceChosen;
-    speakName.voice = voiceChosen;
 
-    speakName.text = sampleName;
+    let s = setSpeech();
+    s.then(//(voices) => console.log(voices)
+    function setVoice(voiceChosen){
+        
+        speakName.voice = voiceChosen[5]; 
+        console.log(speakName.voice);
+        speakName.rate = 0.8;
+        speakName.pitch = 3;
+        speakName.text = sampleName;
+        window.speechSynthesis.speak(speakName);
+    }
+    ); 
+
     
-    console.log(speakName.voice);
-    window.speechSynthesis.speak(speakName);
-//}, 10000);
+
  }
 
 
