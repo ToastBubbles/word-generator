@@ -21,31 +21,14 @@ function generateNewName(){
     tempString = genName.join("");
 
     
-    readName(tempString);
+    readWord(tempString, 5);
     document.getElementById("makeName").innerHTML = tempString.charAt(0).toUpperCase() + tempString.slice(1);
 
  }
 
 
 
-function setSpeech() {
-    return new Promise(
-        function (resolve, reject) {
-            let synth = window.speechSynthesis;
-            let id;
-
-            id = setInterval(() => {
-                if (synth.getVoices().length !== 0) {
-                    resolve(synth.getVoices());
-                    clearInterval(id);
-                }
-            }, 10);
-        }
-    )
-}
-
-
-
+/*
  function readName(sampleName){
 
     var speakName = new SpeechSynthesisUtterance();
@@ -62,7 +45,7 @@ function setSpeech() {
         window.speechSynthesis.speak(speakName);
     }
     ); 
- }
+ }*/
 
 
  function preName(){

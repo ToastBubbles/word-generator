@@ -76,9 +76,7 @@ function setWordPattern(p, l){
 
 
 }
-
-/*
-function setSpeechWord() {
+function setSpeech() {
     return new Promise(
         function (resolve, reject) {
             let synth = window.speechSynthesis;
@@ -92,11 +90,8 @@ function setSpeechWord() {
             }, 10);
         }
     )
-}*/
-
-
-
- function readWord(sampleWord){
+}
+ function readWord(sampleWord, voiceIndex){
 
     var speakWord = new SpeechSynthesisUtterance();
 
@@ -104,8 +99,9 @@ function setSpeechWord() {
     s.then(//(voices) => console.log(voices)
     function setVoice(voiceChosenWord){
         
-        speakWord.voice = voiceChosenWord[1]; 
-        console.log(speakWord.voice);
+        speakWord.voice = voiceChosenWord[voiceIndex]; 
+        //console.log(speakWord.voice);
+        speakWord.volume = 1;
         speakWord.rate = 0.2;
         speakWord.pitch = 3;
         speakWord.text = sampleWord;
@@ -130,7 +126,7 @@ function generateNewWord(){
     //speakWord.text = genWord;
     //window.speechSynthesis.speak(speakWord);
 
-    readWord(genWord);
+    readWord(genWord, 2);
 
     document.getElementById("makeWord").innerHTML = genWord;
 

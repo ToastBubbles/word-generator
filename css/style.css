@@ -18,12 +18,17 @@ body {
     animation-timing-function: linear;
 }
 
+.virus{
+
+    color: rgb(68, 0, 0);
+}
+
 @keyframes spin {
     from {
-        transform:rotate(-2deg);
+        transform:rotate(-1deg);
     }
     to {
-        transform:rotate(2deg);
+        transform:rotate(1deg);
 
 
     }
