@@ -50,7 +50,6 @@ function setSpeech() {
 
     var speakName = new SpeechSynthesisUtterance();
 
-
     let s = setSpeech();
     s.then(//(voices) => console.log(voices)
     function setVoice(voiceChosen){
@@ -63,9 +62,6 @@ function setSpeech() {
         window.speechSynthesis.speak(speakName);
     }
     ); 
-
-    
-
  }
 
 

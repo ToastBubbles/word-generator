@@ -77,6 +77,43 @@ function setWordPattern(p, l){
 
 }
 
+/*
+function setSpeechWord() {
+    return new Promise(
+        function (resolve, reject) {
+            let synth = window.speechSynthesis;
+            let id;
+
+            id = setInterval(() => {
+                if (synth.getVoices().length !== 0) {
+                    resolve(synth.getVoices());
+                    clearInterval(id);
+                }
+            }, 10);
+        }
+    )
+}*/
+
+
+
+ function readWord(sampleWord){
+
+    var speakWord = new SpeechSynthesisUtterance();
+
+    let s = setSpeech();
+    s.then(//(voices) => console.log(voices)
+    function setVoice(voiceChosenWord){
+        
+        speakWord.voice = voiceChosenWord[1]; 
+        console.log(speakWord.voice);
+        speakWord.rate = 0.2;
+        speakWord.pitch = 3;
+        speakWord.text = sampleWord;
+        window.speechSynthesis.speak(speakWord);
+    }
+    ); 
+ }
+
 
 
 
@@ -88,10 +125,13 @@ function generateNewWord(){
 
     genWordLength = setWordLength(genWordLength);
     genWord =setWordPattern(genWordPatt, genWordLength);
-    var speakWord = new SpeechSynthesisUtterance();
-    speakWord.rate = 0.8;
-    speakWord.text = genWord;
-    window.speechSynthesis.speak(speakWord);
+    //var speakWord = new SpeechSynthesisUtterance();
+    //speakWord.rate = 0.8;
+    //speakWord.text = genWord;
+    //window.speechSynthesis.speak(speakWord);
+
+    readWord(genWord);
+
     document.getElementById("makeWord").innerHTML = genWord;
 
 }
