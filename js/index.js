@@ -87,9 +87,12 @@ function generateNewWord(){
     let genWordPatt = [0];
 
     genWordLength = setWordLength(genWordLength);
-    genWordPatt =setWordPattern(genWordPatt, genWordLength);
-
-    document.getElementById("makeWord").innerHTML = genWordPatt;
+    genWord =setWordPattern(genWordPatt, genWordLength);
+    var speakWord = new SpeechSynthesisUtterance();
+    speakWord.rate = 0.8;
+    speakWord.text = genWord;
+    window.speechSynthesis.speak(speakWord);
+    document.getElementById("makeWord").innerHTML = genWord;
 
 }
 
