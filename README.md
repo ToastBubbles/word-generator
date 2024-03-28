@@ -1,3 +1,3 @@
-# Random non-sense word generator
+# Random nonsense word generator
 
 Available on [GitHub Pages](https://toastbubbles.github.io/word-generator/)
